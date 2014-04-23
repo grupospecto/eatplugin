@@ -14,5 +14,5 @@ Contributions are welcome, as well feedbacks ;-)
 
 We hope you enjoy using this plugin and may it be useful to you!
 
-Eduardo Kreuch
+Eduardo Kreuch\n
 Jean Carlo Rossa Hauck
