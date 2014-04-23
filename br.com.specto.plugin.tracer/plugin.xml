@@ -4,15 +4,15 @@
 	<extension point="org.eclipse.ui.menus">
     	<menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
       		<command
-      			commandId="br.kreuch.plugin.tracer.trace"
+      			commandId="br.com.specto.plugin.tracer.trace"
         		label="Matriz de Rastreabilidade..." style="push">
       		</command>
     	</menuContribution>
   	</extension>
   	<extension point="org.eclipse.ui.commands">
     	<command
-    		defaultHandler="br.kreuch.plugin.tracer.handler.TraceHandler"
-      		id="br.kreuch.plugin.tracer.trace" name="Tracer">
+    		defaultHandler="br.com.specto.plugin.tracer.handler.TraceHandler"
+      		id="br.com.specto.plugin.tracer.trace" name="Tracer">
     </command>
   </extension>
 </plugin>

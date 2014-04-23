@@ -1,4 +1,4 @@
-package br.kreuch.plugin.tracer.util;
+package br.com.specto.plugin.tracer.util;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package br.kreuch.plugin.tracer.handler;
+package br.com.specto.plugin.tracer.handler;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,9 +26,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.kreuch.plugin.tracer.factory.I18nConstantsFactory;
-import br.kreuch.plugin.tracer.factory.JdbcConnectionFactory;
-import br.kreuch.plugin.tracer.util.Util;
+import br.com.specto.plugin.tracer.factory.I18nConstantsFactory;
+import br.com.specto.plugin.tracer.factory.JdbcConnectionFactory;
+import br.com.specto.plugin.tracer.util.Util;
 
 public class TraceHandler extends AbstractHandler {
 	private Map<Long, String> useCases;
@@ -95,7 +95,7 @@ public class TraceHandler extends AbstractHandler {
 	private final void writeToActiveEditorFile(ICompilationUnit activeFile, List<Long> useCaseIds){
 		String strUseCases = Util.getListAsString(useCaseIds, "UC-");
 		strUseCases = "/** <UseCases>" + strUseCases + " </UseCases> */\n\n";
-
+		
 		try {
 			String source = activeFile.getSource();
 			Document document = new Document(source);
@@ -103,12 +103,16 @@ public class TraceHandler extends AbstractHandler {
 			int offset;
 			try {
 				offset = document.search(0, "package", true, true, true);
+				
+				if (offset == -1){//no package (default package) class
+					offset = 0;
+				}
 			} catch (BadLocationException e1) {
 				offset = 0;
 			}
 
 			ReplaceEdit edit = new ReplaceEdit(0, offset, strUseCases);
-
+			
 			activeFile.applyTextEdit(edit, null);
 			activeFile.reconcile(ICompilationUnit.NO_AST, false, null, null);
 			activeFile.commitWorkingCopy(false, null);

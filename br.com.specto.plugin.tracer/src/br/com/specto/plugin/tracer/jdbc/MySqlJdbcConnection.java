@@ -1,4 +1,4 @@
-package br.kreuch.plugin.tracer.jdbc;
+package br.com.specto.plugin.tracer.jdbc;
 
 
 public class MySqlJdbcConnection extends JdbcConnection {

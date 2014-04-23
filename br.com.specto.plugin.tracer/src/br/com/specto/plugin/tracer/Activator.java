@@ -1,4 +1,4 @@
-package br.kreuch.plugin.tracer;
+package br.com.specto.plugin.tracer;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -9,15 +9,18 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "br.kreuch.plugin.tracer"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "br.com.specto.plugin.tracer"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
+	
+	private static BundleContext context;
 	
 	/**
 	 * The constructor
 	 */
 	public Activator() {
+
 	}
 
 	/*
@@ -27,6 +30,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		Activator.context =context;  
 	}
 
 	/*
@@ -47,4 +51,7 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	public static BundleContext getContext(){
+		return context;
+	}
 }

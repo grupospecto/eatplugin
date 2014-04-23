@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tracer
-Bundle-SymbolicName: br.kreuch.plugin.tracer;singleton:=true
+Bundle-SymbolicName: br.com.specto.plugin.tracer;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: br.kreuch.plugin.tracer.Activator
+Bundle-Activator: br.com.specto.plugin.tracer.Activator
 Require-Bundle: org.eclipse.jdt.core;bundle-version="3.8.3",
  org.eclipse.core.resources;bundle-version="3.8.1",
  org.eclipse.core.runtime;bundle-version="3.8.0",

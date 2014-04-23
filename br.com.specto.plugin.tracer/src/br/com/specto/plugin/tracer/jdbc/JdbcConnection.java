@@ -1,4 +1,4 @@
-package br.kreuch.plugin.tracer.jdbc;
+package br.com.specto.plugin.tracer.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,19 +36,19 @@ public abstract class JdbcConnection {
 	private final void createConnection(){
 		try {			 
 			Class.forName(this.driverName); 
-		} catch (ClassNotFoundException e) { 
-			System.out.println(e.getMessage()); 
+		} catch (ClassNotFoundException e) {
+
 		}
  
 		try { 
 			this.connection = DriverManager.getConnection(this.connectionString, this.userName, this.password);
 			this.statement = this.connection.createStatement();
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+
 		}
 	}
 	
-	public final void closeConnection(){
+	public final void closeConnection(){	
 		try {
 			this.connection.close();
 		} catch (SQLException e) {
@@ -76,7 +76,8 @@ public abstract class JdbcConnection {
 	
 	public final Long getObjectIdForGenFile(String fileName){
 		try {
-			ResultSet rs = this.statement.executeQuery(this.getObjectIdCommand(fileName));
+			String command = this.getObjectIdCommand(fileName);
+			ResultSet rs = this.statement.executeQuery(command);
 			
 			Long result = 0L;
 			if (rs.next()){
@@ -85,7 +86,6 @@ public abstract class JdbcConnection {
 			
 			return result;
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return null;
 		}
 	}
